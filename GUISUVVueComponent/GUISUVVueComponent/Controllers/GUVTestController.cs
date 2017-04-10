@@ -122,5 +122,12 @@ namespace GUISUVVueComponent.Controllers
         }
         #endregion
 
+
+        #region 事件
+        public IActionResult Event()
+        {
+            return View();
+        }
+        #endregion
     }
 }
