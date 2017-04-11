@@ -50,7 +50,17 @@ namespace GUISUVVueComponent.Controllers
             return View();
         }
         #endregion
-
+        #region 组件
+        /// <summary>
+        /// 组件
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("component1")]
+        public IActionResult Component1()
+        {
+            return View();
+        }
+        #endregion
 
         #region 验证
         /// <summary>

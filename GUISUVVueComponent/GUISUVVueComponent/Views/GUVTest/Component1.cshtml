@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>首页</title>
+    <script src="~/lib/vue/dist/vue.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    
+    <hr style="border:1px solid #f00" />
+    <div id="example-1" class="container">
+        <parent value="数据"></parent>
+    </div>
+    <script>     
+    
+        Vue.component('child', {     
+            props: ['message'], 
+            template: '<span>子组件值：{{ message }}</span>'
+        })
+        Vue.component('parent', {
+            props: ['value'],
+            template: '<div><span>父组件值：{{ value }}</span><br/><child v-bind:message=value></child></div>'
+        })
+        new Vue({
+            el: '#example-1'
+        })
+    </script>
+    <hr style="border:1px solid #f00" />
+
+
+
+    <hr style="border:1px solid #f00" />
+
+    <hr style="border:1px solid #f00" />
+
+    <hr style="border:1px solid #f00" />
+
+    <hr style="border:1px solid #f00" />
+ 
+</body>
+</html>
