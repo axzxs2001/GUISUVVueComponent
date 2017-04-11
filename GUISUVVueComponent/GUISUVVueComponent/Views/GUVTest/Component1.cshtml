@@ -19,7 +19,7 @@
 <body>
 
     <hr style="border:1px solid #f00" />
-    <h1>嵌套组件</h1>
+    <h3>嵌套组件</h3>
     <div id="example-1" class="container">
         <parent value="数据"></parent>
     </div>
@@ -38,7 +38,7 @@
         })
     </script>
     <hr style="border:1px solid #f00" />
-    <h1>自定义事件</h1>
+    <h3>自定义事件</h3>
     <div id="example-2" class="container">
         <p>{{ total }}</p>
         @*4、把increment事件与incrementTotal绑定*@
@@ -87,11 +87,87 @@
 
 
     <hr style="border:1px solid #f00" />
-
+    <h1> Slot</h1>
+    <div id="example-3" class="container">
+        <app-panent v-bind:artices="artices"></app-panent>
+    </div>
+    <script>
+        //子组件
+        Vue.component('app-layout', {
+            template: '\
+            <div class="row">\
+              <header>\
+                <slot name="header"></slot>\
+              </header>\
+              <main>\
+                <slot></slot>\
+              </main>\
+              <footer>\
+                <slot name="footer"></slot>\
+              </footer>\
+            </div>'
+        })
+        //父组件
+        Vue.component('app-panent', {
+            props: ["artices"],
+            template: '<div class="container">\
+            <app-layout v-for="artice in artices">\
+              <h3 slot="header">{{artice.title}}</h3>\
+              <p>{{artice.content}}</p>\
+              <p slot="footer">{{artice.contact}}</p>\
+               </app-layout>\
+            </div>'
+        })
+        new Vue({
+            el: '#example-3',
+            data: {
+                artices:[
+                    {
+                        "title": "这里是标题1",
+                        "content": "这里是内容1",
+                        "contact": "版权所有2017  Tel: 0411-8989898"
+                    },
+                    {
+                        "title": "这里是标题2",
+                        "content": "这里是内容2",
+                        "contact": "Tel:0411-8989898"
+                    }
+                ]
+            }
+        })
+    </script>
     <hr style="border:1px solid #f00" />
-
+    <div id="example-4" class="container">
+        <app-pat></app-pat>
+    </div>
+    <script>
+        //子组件
+        Vue.component('app-child', {
+            template: '\
+            <div class="row">\
+                <slot message="hello from child"></slot>\
+            </div>'
+        })
+        //父组件
+        Vue.component('app-pat', {
+       
+            template: '<div class="container">\
+            <app-child>\
+            <template scope="props">\
+                <span>hello from parent</span><br/>\
+                <span>{{ props.message }}</span>\
+            </template>\
+            </app-child>\
+            </div>'
+        })
+        new Vue({
+            el: '#example-4'
+        })
+    </script>
     <hr style="border:1px solid #f00" />
+    <div id="ex">
 
+    </div>
     <hr style="border:1px solid #f00" />
 
 </body>
