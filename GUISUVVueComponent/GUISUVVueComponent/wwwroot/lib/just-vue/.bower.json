@@ -1,0 +1,14 @@
+{
+  "name": "just-vue",
+  "homepage": "https://github.com/justclear/just-vue",
+  "_release": "c5824cf695",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c5824cf6955f97a315fd375363a13929457119a5"
+  },
+  "_source": "https://github.com/justclear/just-vue.git",
+  "_target": "*",
+  "_originalSource": "just-vue",
+  "_direct": true
+}

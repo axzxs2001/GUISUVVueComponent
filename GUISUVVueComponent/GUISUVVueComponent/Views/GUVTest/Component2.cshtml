@@ -10,9 +10,10 @@
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>首页</title>
-    <script src="~/lib/vue/dist/vue.js"></script>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/vue/dist/vue.js"></script>
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
 </head>
@@ -39,7 +40,40 @@
     </script>
     <hr style="border:1px solid #f00" />
 
-    <hr style="border:1px solid #f00" />
+    <div id="example-2">
+        <child message="1234512344"></child>
+    </div>
 
+    <script type="text/x-template" id="component2">
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                <span>
+                    {{ message }}
+                </span>
+            </div>
+        </div>
+    </script>
+    <script>
+        Vue.component('child', {
+            props: {
+                message: {
+                    validator: function (value) {
+                        return value.length > 5;
+                    }
+                }
+            },
+            template: '#component2'
+        })
+
+        new Vue({
+            el: '#example-2',
+
+        })
+    </script>
+    <hr style="border:1px solid #f00" />
+  
+    <hr style="border:1px solid #f00" />
 </body>
 </html>
