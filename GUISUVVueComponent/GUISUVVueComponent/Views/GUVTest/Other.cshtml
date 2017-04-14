@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>其他</title>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/vue/dist/vue.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+   
+</head>
+<body>
+
+    <hr style="border:1px solid #f00" />
+    <h3>过渡1</h3>
+  
+        <div id="example-1" class="container">
+           <input v-focus="" type="text"/>
+        </div>
+        <script>
+            // 注册一个全局自定义指令 v-focus
+            Vue.directive('focus', {
+                // 当绑定元素插入到 DOM 中。
+                inserted: function (el) {
+                    // 聚焦元素
+                    el.focus();
+                  
+                }
+            })
+        </script>
+    <hr style="border:1px solid #f00" />
+    <h3>过渡2</h3>
+
+    <hr style="border:1px solid #f00" />
+    <h3>过渡3</h3>
+
+    <hr style="border:1px solid #f00" />
+    <h3>过渡4</h3>
+   
+    <hr style="border:1px solid #f00" />
+</body>
+</html>

@@ -159,5 +159,13 @@ namespace GUISUVVueComponent.Controllers
         }
 
         #endregion
+
+        #region 其他
+        [HttpGet("other")]
+        public IActionResult Other()
+        {
+            return View();
+        }
+        #endregion
     }
 }
