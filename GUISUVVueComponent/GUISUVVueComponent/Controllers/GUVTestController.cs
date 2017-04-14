@@ -149,5 +149,15 @@ namespace GUISUVVueComponent.Controllers
             return View();
         }
         #endregion
+
+
+        #region 动画
+        [HttpGet("animate")]
+        public IActionResult Animate()
+        {
+            return View();
+        }
+
+        #endregion
     }
 }

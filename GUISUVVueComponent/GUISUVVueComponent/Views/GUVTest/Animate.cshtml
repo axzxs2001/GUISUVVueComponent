@@ -1,0 +1,191 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>首页</title>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/vue/dist/vue.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    @*<link href="https://unpkg.com/animate.css@3.5.1/animate.min.css" rel="stylesheet" type="text/css">*@
+   
+</head>
+<body>
+
+    <hr style="border:1px solid #f00" />
+    @*<h3>过渡1</h3>
+    <style>
+            /* 可以设置不同的进入和离开动画 */
+            /* 设置持续时间和动画函数 */
+            .slide-fade-enter-active {
+                transition: all .3s ease;
+            }
+
+            .slide-fade-leave-active {
+                transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+            }
+
+            .slide-fade-enter, .slide-fade-leave-active {
+                transform: translateX(10px);
+                opacity: 0;
+            }
+        </style>
+        <div id="example-1" class="container">
+            <button v-on:click="show=!show">确定</button>
+            <transition name="slide-fade">
+                <h1 v-if="show">这是一个动画</h1>
+            </transition>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: '#example-1',
+                data: {
+                    show: true
+                }
+            })
+        </script>
+    <hr style="border:1px solid #f00" />
+    <h3>过渡2</h3>
+    <style>
+        .bounce-enter-active {
+            animation: bounce-in .5s;
+        }
+
+        .bounce-leave-active {
+            animation: bounce-out .5s;
+        }
+
+        @@keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @@keyframes bounce-out {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+    </style>
+    <div id="example-2" class="container">
+        <button v-on:click="show=!show">确定</button>
+        <transition name="bounce">
+            <h1 v-if="show">这是一个动画</h1>
+        </transition>
+    </div>
+    <script>
+        var vm2 = new Vue({
+            el: '#example-2',
+            data: {
+                show: true
+            }
+        })
+    </script>
+    <hr style="border:1px solid #f00" />
+    <h3>过渡3</h3>
+    <div id="example-3" class="container">
+        <button @@click="show = !show">
+            确定
+        </button>
+
+        <transition name="custom-classes-transition"
+                    enter-active-class="animated tada"
+                    leave-active-class="animated bounceOutRight">
+
+            <table v-if="show" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr >
+                        <td>编号</td>
+                        <td>名称</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: '#example-3',
+            data: {
+                show: true
+            }
+        })
+    </script>
+    <hr style="border:1px solid #f00" />*@
+    <h3>过渡4</h3>
+    <div id="example-4" class="container">
+        <button @@click="show = !show">
+            Toggle
+        </button>
+        <transition v-on:before-enter="beforeEnter"
+                    v-on:enter="enter"
+                    v-on:leave="leave"
+                    v-bind:css="false">
+            <p v-if="show">
+                Demo
+            </p>
+        </transition>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script>
+        new Vue({
+            el: '#example-4',
+            data: {
+                show: false
+            },
+            methods: {
+                beforeEnter: function (el) {
+                    el.style.opacity = 0
+                    el.style.transformOrigin = 'left'
+                },
+                enter: function (el, done) {
+                    Velocity(el, { opacity: 1, fontSize: '1.4em' }, { duration: 300 })
+                    Velocity(el, { fontSize: '1em' }, { complete: done })
+                },
+                leave: function (el, done) {
+                    Velocity(el, { translateX: '15px', rotateZ: '50deg' }, { duration: 600 })
+                    Velocity(el, { rotateZ: '100deg' }, { loop: 2 })
+                    Velocity(el, {
+                        rotateZ: '45deg',
+                        translateY: '30px',
+                        translateX: '30px',
+                        opacity: 0
+                    }, { complete: done })
+                }
+            }
+        })
+    </script>
+    <hr style="border:1px solid #f00" />
+</body>
+</html>
