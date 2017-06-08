@@ -17,5 +17,11 @@ namespace GUISUVVueComponent.Controllers
         {
             return new JsonResult(new { name = name, sex = sex, age = age,mz=mz, height = height });
         }
+
+
+        public IActionResult Index2()
+        {
+            return View();
+        }
     }
 }

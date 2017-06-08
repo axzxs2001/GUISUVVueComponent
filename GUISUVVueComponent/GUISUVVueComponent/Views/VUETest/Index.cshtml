@@ -81,6 +81,9 @@
                 mz:'汉',
                 height: ''
             },
+            updated: function () {
+                console.log('更新')
+            },
             methods: {
                 sava: function () {
                     $.post("/addperson", { name: this.name, sex: this.sex, age: this.age,mz:this.mz, height: this.height }, function (dataBack) {
