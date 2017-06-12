@@ -27,7 +27,33 @@
         <button v-on:click="sava" class="btn btn-success">保存</button>
 
     </div>
+    <div id="app-6">
+        <p>{{ aaa.message }}</p>
+        <input v-model="aaa.message">
+        <p>{{ aaa.message2 }}</p>
+        <input v-model="aaa.message2">
+    </div>
+
     <script>
+
+        var app6 = new Vue({
+            el: '#app-6',
+            data: {
+                aaa{
+                    message: 'Hello Vue!',
+                    message2: "ddd"
+                }
+            },
+            methods: {
+                sava: function () {
+
+          
+                }
+
+            }
+        })
+
+
         Vue.component('todo-item', {
             template: '\
     <li>\
@@ -54,7 +80,7 @@
                 },
                 sava: function () {
                     console.log(this.todos)
-                    $.post("/savadata", { data: this.todos }, function (result) {
+                    $.post("/savadata", { data: JSON.stringify( this.todos) }, function (result) {
                         if (result) {
                             alert("保存成功！");
                         } else {
