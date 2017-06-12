@@ -23,5 +23,15 @@ namespace GUISUVVueComponent.Controllers
         {
             return View();
         }
+        public IActionResult Index3()
+        {
+            return View();
+        }
+        [HttpPost("savadata")]
+        public bool SavaData(string[] data)
+        {
+            return true;
+        }
+
     }
 }

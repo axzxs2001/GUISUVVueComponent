@@ -88,7 +88,7 @@
                 sava: function () {
                     $.post("/addperson", { name: this.name, sex: this.sex, age: this.age,mz:this.mz, height: this.height }, function (dataBack) {
 
-                        $("#data_row").append("<tr><td>" + dataBack.name + "</td><td>" + dataBack.sex + "</td><td>" + dataBack.age + "</td><td>" + dataBack.mz +  "</td><td>" + dataBack.height + "</td></tr>")
+                        $("#data_row").prepend("<tr><td>" + dataBack.name + "</td><td>" + dataBack.sex + "</td><td>" + dataBack.age + "</td><td>" + dataBack.mz +  "</td><td>" + dataBack.height + "</td></tr>")
                         $("[tabindex=" + 1 + "]").focus();
 
                         //清空属性
