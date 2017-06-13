@@ -36,5 +36,9 @@ namespace GUISUVVueComponent.Controllers
         {
             return View();
         }
+        public IActionResult Index5()
+        {
+            return View();
+        }
     }
 }
