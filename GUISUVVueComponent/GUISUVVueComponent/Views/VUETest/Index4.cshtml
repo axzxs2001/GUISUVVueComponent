@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>测试</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/vue/dist/vue.js"></script>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="app">
+        <input v-model="person.name">
+        <br>
+        <input v-model="person.age">
+        <br />
+        @* 给属性赋值数据，注意命名 *@
+        <person v-bind:name="person.name"  v-bind:age="person.age" v-bind:sex="person.sex" v-bind:scores="person.scores" ></person>
+        <hr />
+        <person v-bind="person"></person>
+  
+    </div>
+    <script>
+
+        Vue.component('personname', {
+            props: ['name'],
+            template:'<h1>人员：{{name}}</h1>'
+        });
+        Vue.component('person', {
+            //定义属性
+            props: {
+                name: '',
+                age: 0,
+                sex: true,
+                scores: {
+                    chinese: 0,
+                    meth:0
+                }
+            },
+            //使用属性
+            template: '<div><personname v-bind:name="name"></personname><b>姓名：<span>{{name}}</span></b><br/><b>年龄：<span>{{age}}</span></b><br/><b>性别：<span>{{sex}}</span></b><br/>语文：<span>{{scores.chinese}}</span><br/>数学：<span>{{scores.meth}}</span></div>'
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                person: {
+                    //实例数据
+                    name: '张三',
+                    age: 20,
+                    sex1: true,
+                    scores: {
+                        chinese: 100,
+                        meth: 80
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

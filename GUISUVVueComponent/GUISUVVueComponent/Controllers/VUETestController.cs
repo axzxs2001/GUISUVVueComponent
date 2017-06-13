@@ -32,6 +32,9 @@ namespace GUISUVVueComponent.Controllers
         {
             return true;
         }
-
+        public IActionResult Index4()
+        {
+            return View();
+        }
     }
 }
