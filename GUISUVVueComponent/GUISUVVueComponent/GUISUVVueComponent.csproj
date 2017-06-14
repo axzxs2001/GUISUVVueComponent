@@ -14,9 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\vue\Hello.css" />
-    <Content Include="wwwroot\vue\Hello.js" />
-    <Content Include="wwwroot\vue\Hello1.html" />
+    <Content Include="wwwroot\vue\gsw.vue" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
@@ -28,9 +26,6 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="wwwroot\vue\" />
   </ItemGroup>
 
 </Project>
