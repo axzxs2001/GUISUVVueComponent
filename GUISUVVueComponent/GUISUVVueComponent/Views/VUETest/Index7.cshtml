@@ -1,4 +1,6 @@
-﻿@{
+﻿@model GUISUVVueComponent.Controllers.Item
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -11,15 +13,41 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/lib/vue/dist/vue.js"></script>
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-
 </head>
 <body>
-    <gsw></gsw>
 
-    @*<script>
-        import gsw from '~/vue/gsw.vue'
-    </script>*@
-    <script src="~/gsw.vue"></script>
+    <div id="watch-example">
+        <hello-world></hello-world>
+    </div>
+    <div id="watch-example1">
+        <hello-vue></hello-vue>
+    </div>
+
+    <script type="text/x-template" id="hello-world-template">
+        <div>
+            <h1>标题</h1>
+            <p>Hello World</p>
+        </div>
+    </script>
+    <script src="~/vue/vuejs.js"></script>
+    <script type="text/javascript">     
+
+        Vue.component('hello-vue', function (resolve, reject) {
+            // 可以请求一个html文件，既然存放模板还是html文件存放比较好
+            $.get("/vue/mytemplate.html").then(function (res) {
+                resolve({
+                    template: res
+                })
+            });
+        });
+        var vm = new Vue({
+            el: "#watch-example1"
+        })
+
+
+       
+
+    </script>
 
 
 </body>

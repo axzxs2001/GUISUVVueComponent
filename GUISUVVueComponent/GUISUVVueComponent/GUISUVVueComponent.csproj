@@ -15,6 +15,10 @@
 
   <ItemGroup>
     <Content Include="wwwroot\vue\gsw.vue" />
+    <Content Include="wwwroot\vue\mytemp.html" />
+    <Content Include="wwwroot\vue\mytemplate.html" />
+    <Content Include="wwwroot\vue\vuejs.js" />
+    <Content Include="wwwroot\vue\VueJsTemplate.js" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />

@@ -13,9 +13,9 @@ namespace GUISUVVueComponent.Controllers
             return View();
         }
         [HttpPost("addperson")]
-        public IActionResult AddPerson(string Name,string Sex,int Age,string mz,double height)
+        public IActionResult AddPerson(string Name, string Sex, int Age, string mz, double height)
         {
-            return new JsonResult(new { name = Name, sex = Sex, age = Age,mz=mz, height = height });
+            return new JsonResult(new { name = Name, sex = Sex, age = Age, mz = mz, height = height });
         }
 
 
@@ -46,7 +46,13 @@ namespace GUISUVVueComponent.Controllers
         }
         public IActionResult Index7()
         {
-            return View();
+
+            return View(new Item() { sql = "select *,'a',\"a\" from aaa \r\n bbb" });
         }
+    }
+    public class Item
+    {
+        public string sql
+        { get; set; }
     }
 }
